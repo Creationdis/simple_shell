@@ -1,24 +1,23 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "shell.h"
 
 /**
- * env_builtin - function that implements the printenv builtins
- * @args: the parsed arguments
- * Return: 0
+ * builtins - Function that implements the exit and env built-in commands
+ * @l: line
+ * @args: The arguments
+ * @env: The environment variables
+ * @exit_status: The exit status
+ * Return: void
  */
 
-int env_builtin(char **args)
+void builtins(char *l, char **args, char **env, int *exit_status)
 {
-char **env = environ;
-while (*env)
+if (_strcmp(args[0], "exit") == 0)
 {
-printf("%s\n", *env);
-env++;
+free(args);
+free(l);
+exit(*exit_status);
 }
-return (0);
-}
-if (strcmp(args[0], "env") == 0)
-{
-env_builtin(args);
-return (1);
+
+if (_strcmp(args[0], "env") == 0)
+_getenv(env, exit_status);
 }
