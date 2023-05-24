@@ -18,7 +18,7 @@ name = malloc(1024);
 for (j = 0; environ[i][j] != '='; j++)
 name[j] = environ[i][j];
 
-name[j] = '\0'; 
+name[j] = '\0';
 
 if (strcmp(name, s1) == 0)
 {
