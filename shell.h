@@ -19,7 +19,7 @@
 
 int _putchar(char c);
 int print(char *new_str);
-int main( int argc , char **argv ,char **env);
+int main(int argc, char **argv, char **env);
 void prompt(char **argv, char **env);
 int main(void);
 int execute_command(char **args);
