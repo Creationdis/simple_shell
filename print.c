@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * print - print char.
@@ -10,7 +10,7 @@ int print(char *new_str)
 {
 int i;
 
-for (i = 0; new_str[i] != '\0'; ++i)
+for (i = 0; new_str[i] != '\0'; i++)
 _putchar(new_str[i]);
 
 return (i);
