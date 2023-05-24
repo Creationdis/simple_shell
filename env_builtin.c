@@ -7,8 +7,6 @@
  * Return: 0
  */
 
-extern char **environ;
-
 int env_builtin(char **args)
 {
 char **env = environ;
@@ -19,7 +17,7 @@ env++;
 }
 return (0);
 }
-if (strcmp(args[0], "env") == 0) 
+if (strcmp(args[0], "env") == 0)
 {
 env_builtin(args);
 return (1);
