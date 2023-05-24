@@ -23,10 +23,6 @@ int main(void);
 int execute_command(char **args);
 int read_command(char *line, char **args);
 void signal_handler(int signum);
-int _strcmp(const char *s1, const char *s2);
-char *_getenv(char **environ, char *s1);
-int env_builtin(char **args);
-void builtins(char *l, char **args, char **env, int *exit_status);
 extern char **environ;
 
 #endif /* SHELL_H */
