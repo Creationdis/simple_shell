@@ -13,7 +13,7 @@
 
 #define DELIM " \t\r\n\a"
 #define BUFSIZE 1024
-#define MAX_ARGS 10 
+#define MAX_ARGS 10
 
 /* Function prototypes */
 

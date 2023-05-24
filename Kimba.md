@@ -21,4 +21,4 @@ Kimba and Alex, keep us honest and upright.
 And as this song comes to an end.
 Our love and gratitude we send.
 
-Do Hard things! 
+Do Hard things!
