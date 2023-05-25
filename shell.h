@@ -1,61 +1,44 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-#include <time.h>
-#include <stdbool.h>
+#include <signal.h>
+#include <limits.h>
 
-/* environment variables */
-extern char **environ;
-extern __sighandler_t signal(int __sig, __sighandler_t __handler);
+#define DELIM " \t\r\n\a"
+#define BUFSIZE 1024
+#define MAX_ARGS 10
 
-/* handle built ins */
-int checker(char **cmd, char *buf);
-void prompt_user(void);
-void handle_signal(int m);
-char **tokenizer(char *line);
-char *test_path(char **path, char *command);
-char *append_path(char *path, char *command);
-int handle_builtin(char **command, char *line);
-void exit_cmd(char **command, char *line);
+/* Function prototypes */
 
+int _putchar(char c);
+int print(char *new_str);
+int main(void);
+int execute_command(char *command_line, char *executable_name);
+char *find_full_path(char *file_name);
+int our_strncmp(char *first_str, char *second_str, int index);
+int get_built_in(char *command);
+int is_built_in(char *cmd, char *free_line, int status);
 void print_env(void);
-
-/* string handlers */
-int _strcmp(char *s1, char *s2);
-int _strlen(char *s);
-int _strncmp(char *s1, char *s2, int n);
-char *_strdup(char *s);
-char *_strchr(char *s, char c);
-
-void execution(char *cp, char **cmd);
-char *find_path(void);
-
-/* helper function for efficient free */
-void free_buffers(char **buf);
-
-struct builtin
-{
-	char *env;
-	char *exit;
-} builtin;
-
-struct info
-{
-	int final_exit;
-	int ln_count;
-} info;
-
-struct flags
-{
-	bool interactive;
-} flags;
+char *remove_comment(char *cmd_line);
+int get_string_length(char *str);
+int countArguments(char *line);
+char *duplicateString(char *str);
+char *copyString(char *dest, char *src);
+char *concatenateStrings(char *dest, char *src);
+int shell_main(int argc __attribute__((unused)), char *argv[]);
+char *ignore_surrounded_spaces(char *old_line);
+char **allocate_arguments(int num_args, char *command);
+void free_arguments(char **args);
+int execute_command(char *command_line, char *executable_name);
+char *find_full_path(char *file_name);
+extern char **environ;
 
 #endif /* SHELL_H */
+
