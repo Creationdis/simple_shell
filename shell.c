@@ -1,41 +1,50 @@
 #include "shell.h"
-#include <stdio.h>
-#include <stdlib.h>
-
 /**
- * shell_main - Entry point for the simple_shell.
- * @argc: argument count
- * @argv: pointer to array of strings of arguments
- * Return: 0
- */
-int shell_main(int argc __attribute__((unused)), char *argv[])
-{
-size_t line_length;
-char *input_line = NULL, *command;
-int nr_chars_read, loop_count = 0, status = 0;
+* main - carries out the read, execute then print output loop
+* @ac: argument count
+* @av: argument vector
+* @envp: environment vector
+*
+* Return: 0
+*/
 
-while (1)
+int main(int ac, char **av, char *envp[])
 {
-if (isatty(STDIN_FILENO) == 1)
-write(STDOUT_FILENO, "#omar/sfn$ ", 11);
-nr_chars_read = getline(&input_line, &line_length, stdin);
-if (nr_chars_read >= 0)
-{
-input_line[nr_chars_read - 1] = '\0';
-command = ignore_surrounded_spaces(input_line);
-if (!is_built_in(command, input_line, status))
-status = execute_command(command, argv[0]);
-free(input_line);
-input_line = NULL;
+	char *line = NULL, *pathcommand = NULL, *path = NULL;
+	size_t bufsize = 0;
+	ssize_t linesize = 0;
+	char **command = NULL, **paths = NULL;
+	(void)envp, (void)av;
+	if (ac < 1)
+		return (-1);
+	signal(SIGINT, handle_signal);
+	while (1)
+	{
+		free_buffers(command);
+		free_buffers(paths);
+		free(pathcommand);
+		prompt_user();
+		linesize = getline(&line, &bufsize, stdin);
+		if (linesize < 0)
+			break;
+		info.ln_count++;
+		if (line[linesize - 1] == '\n')
+			line[linesize - 1] = '\0';
+		command = tokenizer(line);
+		if (command == NULL || *command == NULL || **command == '\0')
+			continue;
+		if (checker(command, line))
+			continue;
+		path = find_path();
+		paths = tokenizer(path);
+		pathcommand = test_path(paths, command[0]);
+		if (!pathcommand)
+			perror(av[0]);
+		else
+			execution(pathcommand, command);
+	}
+	if (linesize < 0 && flags.interactive)
+		write(STDERR_FILENO, "\n", 1);
+	free(line);
+	return (0);
 }
-else
-{
-free(input_line);
-break;
-}
-loop_count++;
-}
-return (0);
-}
-
-
