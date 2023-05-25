@@ -24,7 +24,7 @@ while (path_token != NULL)
 {
 path_ptr = strcpy(path, path_token);
 path_ptr = strcat(path, "/");
-path_ptr = strdup(_strcat(path, file_name));
+path_ptr = strdup(strcat(path, file_name));
 if (access(path_ptr, X_OK) == 0)
 {
 free(env_paths);
