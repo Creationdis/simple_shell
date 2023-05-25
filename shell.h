@@ -25,6 +25,8 @@ int main(void);
 int execute_command(char **args);
 int read_command(char *line, char **args);
 void signal_handler(int signum);
+int our_strncmp(char *first_str, char *second_str, int index);
+int get_built_in(char *command);
 extern char **environ;
 
 #endif /* SHELL_H */
