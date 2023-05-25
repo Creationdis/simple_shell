@@ -12,7 +12,7 @@ char path[BUFF_SIZE], *path_ptr, **env = environ, *env_paths, *path_token;
 int i = 0;
 
 if (access(file_name, F_OK) == 0)
-return file_name;
+return (file_name);
 
 while (env[i] != NULL)
 {
@@ -28,7 +28,7 @@ path_ptr = _strdup(_strcat(path, file_name));
 if (access(path_ptr, X_OK) == 0)
 {
 free(env_paths);
-return path_ptr;
+return (path_ptr);
 }
 free(path_ptr);
 path_token = strtok(NULL, ":");
