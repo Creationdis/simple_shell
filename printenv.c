@@ -9,7 +9,7 @@ int index;
 
 for (index = 0; environ[index]; index++)
 {
-write(STDOUT_FILENO, environ[index], _strlen(environ[index]));
+write(STDOUT_FILENO, environ[index], strlen(environ[index]));
 write(STDOUT_FILENO, "\n", 1);
 }
 }

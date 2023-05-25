@@ -9,7 +9,7 @@ char *remove_comment(char *cmd_line)
 {
 int index = 0;
 
-if (_strlen(cmd_line) >= 2)
+if (strlen(cmd_line) >= 2)
 {
 while (cmd_line[index])
 {

@@ -19,8 +19,6 @@
 
 int _putchar(char c);
 int print(char *new_str);
-int main(int argc, char **argv, char **env);
-void prompt(char **argv, char **env);
 int main(void);
 int execute_command(char **args);
 int read_command(char *line, char **args);
@@ -30,6 +28,12 @@ int get_built_in(char *command);
 int is_built_in(char *cmd, char *free_line, int status);
 void print_env(void);
 char *remove_comment(char *cmd_line);
+int get_string_length(char *str);
+int countArguments(char *line);
+char *duplicateString(char *str);
+char *copyString(char *dest, char *src);
+char *concatenateStrings(char *dest, char *src);
+
 extern char **environ;
 
 #endif /* SHELL_H */

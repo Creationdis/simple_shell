@@ -10,7 +10,7 @@ int is_built_in(char *cmd, char *free_line, int status)
 {
 int is_builtin;
 
-is_builtin = get_builtin(cmd);
+is_builtin = get_built_in(cmd);
 if (is_builtin == 0)
 {
 free(free_line);
