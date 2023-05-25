@@ -3,10 +3,10 @@
 /**
  * main - simple_shell.
  * @argc: argument count
- * @argv: pointer to array of strings of arguments victor
+ * @argv: pointer to array of strings of arguments
  * Return: 0
 */
-int main(int argc _attribute_((unused)), char *argv[])
+int main(int argc __attribute__((unused)), char *argv[])
 {
 size_t line_length;
 char *input_line = NULL, *command;
@@ -35,3 +35,4 @@ loop_count++;
 }
 return (0);
 }
+
