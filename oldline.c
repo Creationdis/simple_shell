@@ -11,7 +11,7 @@ char *end_of_line, *new_line = old_line;
 
 while (*new_line == ' ')
 new_line++;
-end_of_line = new_line + (_strlen(new_line) - 1);
+end_of_line = new_line + (strlen(new_line) - 1);
 while (end_of_line > new_line && *end_of_line == ' ')
 end_of_line--;
 *(end_of_line + 1) = '\0';

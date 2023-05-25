@@ -32,10 +32,12 @@ int countArguments(char *line);
 char *duplicateString(char *str);
 char *copyString(char *dest, char *src);
 char *concatenateStrings(char *dest, char *src);
-int main(int argc __attribute__((unused)), char *argv[]);
+int shell_main(int argc __attribute__((unused)), char *argv[]);
 char *ignore_surrounded_spaces(char *old_line);
-char **allocate_buffer(int num_args, char *command);
+char **allocate_arguments(int num_args, char *command);
 void free_arguments(char **args);
+int execute_command(char *command_line, char *executable_name);
+char *find_full_path(char *file_name);
 extern char **environ;
 
 #endif /* SHELL_H */
