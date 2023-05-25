@@ -8,7 +8,7 @@
 
 char *find_full_path(char *file_name)
 {
-char path[BUFF_SIZE], *path_ptr, **env = environ, *env_paths, *path_token;
+char path[BUFSIZE], *path_ptr, **env = environ, *env_paths, *path_token;
 int i = 0;
 
 if (access(file_name, F_OK) == 0)
@@ -18,13 +18,13 @@ while (env[i] != NULL)
 {
 if (our_strncmp(env[i], "PATH=", 5) == 0)
 {
-env_paths = _strdup(env[i] + 5);
+env_paths = strdup(env[i] + 5);
 path_token = strtok(env_paths, ":");
 while (path_token != NULL)
 {
-path_ptr = _strcpy(path, path_token);
-path_ptr = _strcat(path, "/");
-path_ptr = _strdup(_strcat(path, file_name));
+path_ptr = strcpy(path, path_token);
+path_ptr = strcat(path, "/");
+path_ptr = strdup(_strcat(path, file_name));
 if (access(path_ptr, X_OK) == 0)
 {
 free(env_paths);
