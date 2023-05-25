@@ -4,7 +4,7 @@
  * main - simple_shell.
  * @argc: argument count
  * @argv: pointer to array of strings of arguments victor
- * Return: 0 
+ * Return: 0
 */
 int main(int argc _attribute_((unused)), char *argv[])
 {

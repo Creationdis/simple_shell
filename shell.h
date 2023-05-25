@@ -20,9 +20,8 @@
 int _putchar(char c);
 int print(char *new_str);
 int main(void);
-int execute_command(char **args);
-int read_command(char *line, char **args);
-void signal_handler(int signum);
+int execute_command(char *command_line, char *executable_name);
+char *find_full_path(char *file_name);
 int our_strncmp(char *first_str, char *second_str, int index);
 int get_built_in(char *command);
 int is_built_in(char *cmd, char *free_line, int status);
@@ -33,7 +32,10 @@ int countArguments(char *line);
 char *duplicateString(char *str);
 char *copyString(char *dest, char *src);
 char *concatenateStrings(char *dest, char *src);
-
+int main(int argc __attribute__((unused)), char *argv[]);
+char *ignore_surrounded_spaces(char *old_line);
+char **allocate_buffer(int num_args, char *command);
+void free_arguments(char **args);
 extern char **environ;
 
 #endif /* SHELL_H */
