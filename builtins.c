@@ -4,9 +4,7 @@
 * handle_builtin - handles execution of builtin functions
 * @command: tokenized commands
 * @line: input read from stdin
-* This function handles the execution of builtin functions based on the given command
-  and input line
-* Return: 1 if the function is executed successfully, and 0 if not 
+* Return: 1 if the function is executed successfully,and 0 if not
 */
 int handle_builtin(char **command, char *line)
 {
