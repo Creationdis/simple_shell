@@ -48,14 +48,14 @@ int _strncmp(char *varname, char *dirname, int n);
 int _strcmp(char *varname, char *dirname);
 char **tokenizer(char *line);
 extern char **environ;
-char *append_path(char *path, char *command)
-void handle_signal(int m)
-void handle_exit(char **command, char *line)
-void free_buffers(char **buffers)
-char *find_path(void)
-void execution(char *cp, char **cmd)
-int checker(char **cmd, char *buf)
-int handle_builtin(char **command, char *line)
+char *append_path(char *path, char *command);
+void handle_signal(int m);
+void handle_exit(char **command, char *line);
+void free_buffers(char **buffers);
+char *find_path(void);
+void execution(char *cp, char **cmd);
+int checker(char **cmd, char *buf);
+int handle_builtin(char **command, char *line);
 
 #endif /* SHELL_H */
 
