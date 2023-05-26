@@ -6,7 +6,7 @@
  * @length: The length of the string.
  * Return: None.
  */
- 
+
 void reverse_string(char *str, int length)
 {
 char temp;

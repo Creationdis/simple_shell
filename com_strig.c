@@ -5,7 +5,7 @@
  * @str1: The first string.
  * @str2: The second string.
  *
- * Return: 0 if the strings are equal, a negative number if str1 is less than str2,
+ * Return: 0 if the strings are equal
  * or a positive number if str1 is greater than str2.
  */
 
@@ -19,7 +19,7 @@ for (i = 0; str1[i] != '\0'; i++)
 diff = str1[i] - str2[i];
 if (diff > 0 || diff < 0)
 {
-return diff;
+return (diff);
 }
 }
 

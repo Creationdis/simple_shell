@@ -13,7 +13,7 @@ char *find_character(char *s, char c)
 int index;
 
 if (s == NULL)
-return NULL;
+return (NULL);
 
 for (index = 0; s[index] != '\0'; index++)
 {

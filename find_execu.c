@@ -7,7 +7,7 @@
  * @env: An array of environment variables.
  * Return: -1 on failure.
  */
- 
+
 int find_executable(char **args, char **argv, char **env)
 {
 char *path = NULL;
