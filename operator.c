@@ -26,6 +26,6 @@ i++;
 }
 
 switch (switch_cmds)
-    
+
 return (0);
 }

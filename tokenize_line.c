@@ -23,6 +23,6 @@ i++;
 token = tokenize_string(NULL, delimiter);
 }
 if (token == NULL && tokens[0] == NULL)
-return NULL;
+return (NULL);
 return (tokens);
 }

@@ -7,7 +7,7 @@
  *
  * Return: A pointer to the destination string.
  */
- 
+
 char *copy_string(char *destination, char *source)
 {
 int i;
