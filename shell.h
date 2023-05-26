@@ -31,6 +31,10 @@ void *set_memory(void *ptr, int value, size_t size);
 void reverse_string(char *str, int length);
 char *convert_to_string(unsigned int num);
 int get_number_length(unsigned int number);
+int shell_main(int arg_count, char **arg_values, char **env_vars);
+char **tokenize_line(char *line);
+int handle_separator_operator(char *input, char **argv, char **env);
+
 extern char **environ;
 
 #endif /* SHELL_H */
