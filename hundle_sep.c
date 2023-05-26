@@ -5,7 +5,7 @@
  * @input: The input string.
  * @argv: An array of arguments.
  * @env: An array of environment variables.
- * Return: 0 on (success).
+ * Return: 0 on success.
  */
 
 int handle_separator_operator(char *input, char **argv, char **env)
