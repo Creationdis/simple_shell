@@ -11,7 +11,7 @@ int _strcmp(char *varname, char *dirname)
 {
 int x = 0, output;
 
-while (*(s1 + i) == *(dirname + x) && *(varname + x) != '\0')
+while (*(varname + x) == *(dirname + x) && *(varname + x) != '\0')
 x++;
 
 output = (*(varname + x)-*(dirname + x));

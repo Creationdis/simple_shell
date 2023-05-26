@@ -14,7 +14,7 @@ int i, l;
 if (str == NULL)
 return (NULL);
 
-l = _strlen(s);
+l = _strlen(str);
 
 new = malloc(sizeof(char) * (l + 1));
 if (!new)
