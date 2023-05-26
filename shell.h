@@ -1,46 +1,52 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#include <stddef.h>
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <fcntl.h>
 #include <string.h>
-#include <signal.h>
+#include <unistd.h>
+#include <sys/types.h>
 #include <sys/wait.h>
-#include <limits.h>
-#include <ctype.h>
+#include <sys/stat.h>
+#include <time.h>
+#include <stdbool.h>
 
 #define DELIM " \t\r\n\a"
 #define BUFSIZE 1024
-#define MAX_ARGS 10
+
+struct builtin
+{
+	char *env;
+	char *exit;
+} builtin;
+
+struct info
+{
+	int final_exit;
+	int ln_count;
+} info;
+
+struct flags
+{
+	bool interactive;
+} flags;
+
 
 /* Function prototypes */
 
-int find_substring(char *string, char *substring);
-char *tokenize_string(char *str, char *delim);
-int get_string_length(char *str);
-char *string_concatenate(char *destination, char *source);
-int compare_strings(char *str1, char *str2);
-char *copy_string(char *destination, char *source);
-char *find_character(char *s, char c);
-void *set_memory(void *ptr, int value, size_t size);
-void reverse_string(char *str, int length);
-char *convert_to_string(unsigned int num);
-int get_number_length(unsigned int number);
-int shell_main(int arg_count, char **arg_values, char **env_vars);
-char **tokenize_line(char *line);
-int handle_separator_operator(char *input, char **argv, char **env);
-int handle_special_variables(char **args, int exit_status);
-int execute_command(char **command, char **argv, char **env);
-int find_executable(char **args, char **argv, char **env);
-int handle_builtin_commands(char **args, char *str);
-int handle_separator_operator(char *line, char **argv, char **env);
-int change_directory(char *path, char **args);
-char *search_env_var(char *name);
+int _putchar(char c);
+void print_string(char *str);
+char *test_path(char **path, char *cmd);
+void print_env(void);
+int main(int argc, char **argv, char *env[]);
+void prompt_user(void);
+int _strlen(char *s);
+char *_strchr(char *str, char c);
+char *_strdup(char *str);
+int _strncmp(char *varname, char *dirname, int n);
+int _strcmp(char *varname, char *dirname);
+char **tokenizer(char *line);
 extern char **environ;
 
 #endif /* SHELL_H */
