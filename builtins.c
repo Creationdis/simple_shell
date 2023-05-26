@@ -17,7 +17,7 @@ return (1);
 }
 else if (_strcmp(*command, builtin.exit) == 0)
 {
-exit_cmd(command, line);
+handle_exit(command, line);
 return (1);
 }
 return (0);
