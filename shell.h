@@ -37,7 +37,7 @@ int handle_separator_operator(char *input, char **argv, char **env);
 int handle_special_variables(char **args, int exit_status);
 int execute_command(char **command, char **argv, char **env);
 int find_executable(char **args, char **argv, char **env);
-
+int handle_builtin_commands(char **args, char *str);
 extern char **environ;
 
 #endif /* SHELL_H */
