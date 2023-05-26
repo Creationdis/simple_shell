@@ -34,6 +34,9 @@ int get_number_length(unsigned int number);
 int shell_main(int arg_count, char **arg_values, char **env_vars);
 char **tokenize_line(char *line);
 int handle_separator_operator(char *input, char **argv, char **env);
+int handle_special_variables(char **args, int exit_status);
+int execute_command(char **command, char **argv, char **env);
+int find_executable(char **args, char **argv, char **env);
 
 extern char **environ;
 
