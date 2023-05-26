@@ -14,7 +14,7 @@ int x = 0, output;
 while (*(s1 + i) == *(dirname + x) && *(varname + x) != '\0')
 x++;
 
-output = (*(varname + x) - *(dirname + x));
+output = (*(varname + x)-*(dirname + x));
 
 return (output);
 }

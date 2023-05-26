@@ -15,17 +15,34 @@
 #define DELIM " \t\r\n\a"
 #define BUFSIZE 1024
 
+/**
+ * struct builtin - Represents a built-in command.
+ * @env: The name of the built-in command.
+ * @exit: A pointer to the function that handles the command.
+ */
+
 struct builtin
 {
 	char *env;
 	char *exit;
 } builtin;
 
+/**
+ * struct info - Represents information about the shell.
+ * @final_exit: exit command.
+ * @ln_count: The count of the executed command lines.
+ */
+
 struct info
 {
 	int final_exit;
 	int ln_count;
 } info;
+
+/**
+ * struct flags - Represents various flags used by the shell.
+ * @interactive: Flag indicating whether the shell is in interactive mode.
+ */
 
 struct flags
 {
